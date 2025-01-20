@@ -8,6 +8,7 @@ body {
 
 p{
     font-size: 16px;
+    font-weight: bold;
 }
 
 .container {
@@ -178,11 +179,6 @@ html {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-size: 62.5%;
-}
-
-/* 背景用*/
-body {
-    padding: 30px;
 }
 
 .btn,
