@@ -51,42 +51,7 @@ body {
     color: #f0c040;
 }
 
-/* メインビジュアル */
-.hero {
-    background: url('hero-image.jpg') no-repeat center center/cover;
-    color: #fff;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.hero-content h2 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.hero-content p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.btn {
-    background: #f0c040;
-    color: #333;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.btn:hover {
-    background: #e0b030;
-}
-
-/* セクションスタイル */
+/* セクション共通 */
 section {
     padding: 40px 0;
     border-bottom: 1px solid #ddd;
@@ -98,7 +63,47 @@ section h2 {
     text-align: center;
 }
 
-.about, .schedule, .tickets, .access {
+/* タイトル小見出し */
+.title-subheading h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* ストーリー */
+.story {
+    text-align: center;
+}
+
+/* プレイ形式 */
+.play-format {
+    text-align: center;
+}
+
+/* 公演の様子 (ギャラリー) */
+.gallery {
+    text-align: center;
+}
+
+.gallery-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gallery-images img {
+    width: 200px;
+    height: auto;
+}
+
+/* 遊び方 */
+.how-to-play {
+    text-align: center;
+}
+
+/* スケジュール */
+.schedule {
     text-align: center;
 }
 
@@ -112,12 +117,27 @@ section h2 {
     font-size: 18px;
 }
 
-/* アクセスセクション */
+/* アクセス */
 .access .map {
     width: 100%;
     height: 300px;
     border: 0;
     margin-top: 20px;
+}
+
+/* 支援していただいた企業様 */
+.sponsors {
+    text-align: center;
+}
+
+.sponsors ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sponsors ul li {
+    font-size: 18px;
+    margin: 10px 0;
 }
 
 /* フッター */
