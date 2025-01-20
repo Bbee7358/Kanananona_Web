@@ -83,19 +83,35 @@ section h2 {
 
 /* 公演の様子 (ギャラリー) */
 .gallery {
+    padding: 40px 0;
     text-align: center;
+}
+
+.gallery-wrapper {
+    width: 100%;
+    overflow: hidden; /* ギャラリーが外にはみ出さないようにする */
 }
 
 .gallery-images {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    animation: scroll-left 30s linear infinite; /* 30秒で右から左に移動 */
 }
 
 .gallery-images img {
-    width: 200px;
-    height: auto;
+    width: 300px; /* 画像の幅を調整 */
+    margin-right: 20px; /* 画像間の間隔 */
 }
+
+/* アニメーション */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0); /* 初期位置 (最初の画像) */
+    }
+    100% {
+        transform: translateX(-50%); /* 画像が半分分流れる (複数の画像が次に表示されるようにする) */
+    }
+}
+
 
 /* 遊び方 */
 .how-to-play {
