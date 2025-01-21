@@ -27,6 +27,10 @@ li{
     margin: 0 auto;
 }
 
+.mojimoji {
+    max-width: 600px;
+    margin: 0 auto;
+}
 /* ヘッダー */
 .header {
     background: #333;
@@ -273,11 +277,27 @@ a.btn-border-shadow--color2:before {
     font-size: 16px;
     color: #333;
     margin: 10px auto;
-    max-width: 600px;
 }
 
-.notice ul li {
-    
+/* 私たちについて */
+.about-us {
+    padding: 40px 0;
+}
+
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+}
+
+.about-description {
+    flex: 1;
 }
 
 
