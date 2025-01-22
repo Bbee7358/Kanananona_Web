@@ -20,7 +20,6 @@ li{
     text-align: left;
 }
 
-
 .container {
     width: 90%;
     max-width: 1200px;
@@ -39,6 +38,9 @@ li{
     position: sticky;
     top: 0;
     z-index: 1000;
+    position: relative;
+    width: 100%;
+    height: 100vh;
 }
 
 .header .logo {
@@ -47,6 +49,23 @@ li{
     text-align: center;
 }
 
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画面サイズに合わせて画像をトリミング */
+}
+
+.overlay-image {
+    position: absolute;
+    top: 19%;  /* 画像を画面中央に配置 */
+    left: 50%;
+    transform: translate(-50%, -50%); /* 中央揃え */
+    width: 720px;  /* 重ねる画像のサイズ */
+    height: auto;  /* 比率を維持 */
+}
 .navigation ul {
     display: flex;
     justify-content: center;
