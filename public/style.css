@@ -184,7 +184,23 @@ section h2 {
 
 .gallery-images img {
     width: 300px; /* 画像の幅を調整 */
+    height: auto; /* 縦横比を保持 */
+    object-fit: contain;  /* 比率を維持 */
     margin-right: 20px; /* 画像間の間隔 */
+}
+/* 小さい画面 (例: モバイル) */
+@media (max-width: 600px) {
+    .gallery-images img {
+        width: 100%; /* 画面幅に合わせて画像を広げる */
+        max-width: none; /* 最大幅制限を解除 */
+    }
+}
+
+/* 中〜大きい画面 (例: タブレット・デスクトップ) */
+@media (min-width: 601px) {
+    .gallery-images img {
+        width: 300px; /* 通常の画像幅 */
+    }
 }
 
 /* アニメーション */
@@ -193,7 +209,7 @@ section h2 {
         transform: translateX(0); /* 初期位置 (最初の画像) */
     }
     100% {
-        transform: translateX(-50%); /* 画像が半分分流れる (複数の画像が次に表示されるようにする) */
+        transform: translateX(-120vw); /* 画像が半分分流れる (複数の画像が次に表示されるようにする) */
     }
 }
 
