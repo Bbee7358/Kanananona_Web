@@ -2,22 +2,21 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
     line-height: 1.6;
-    color: #333;
-    height: 100%;
 }
 
-p{
+p {
     font-size: 16px;
     font-weight: bold;
 }
 
-h3{
+h3 {
     font-size: 20px;
     font-weight: bold;
 }
 
-li{
+li {
     text-align: left;
 }
 
@@ -31,19 +30,17 @@ li{
     max-width: 600px;
     margin: 0 auto;
 }
-/* ヘッダー */
-.header {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    position: relative;
-    width: 100%;
-    height: 100vh;
-}
 
+
+
+.scroll-container {
+    position: relative;
+    height: 200vh;
+    /* スクロール用の高さ */
+    background: #FFE7B8;
+    /* 初期の背景色 */
+    transition: background-color 0.3s ease;
+}
 
 .header .logo {
     font-size: 24px;
@@ -51,42 +48,73 @@ li{
     text-align: center;
 }
 
+/* 背景画像のスタイル */
 .background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 画面サイズに合わせて画像をトリミング */
+    position: fixed;
+    top: 50%;
+    /* 縦方向の中央 */
+    left: 50%;
+    /* 横方向の中央 */
+    transform: translate(-50%, -50%);
+    /* 完全に中央に配置 */
+    width: 90%;
+    /* 横幅を90%に設定 */
+    height: auto;
+    /* 高さを自動調整 */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    /* 画像全体を表示 */
 }
 
+.background-image.active {
+    opacity: 1;
+    /* 表示時の透明度 */
+}
+
+/* 重ねる画像のスタイル */
 .overlay-image {
     position: absolute;
-    top: 19%;  /* 画像を画面中央に配置 */
+    top: 100vh;
+    /* 初期位置を画面外に設定 */
     left: 50%;
-    transform: translate(-50%, -50%); /* 中央揃え */
-    width: 50%;  /* 重ねる画像のサイズ */
-    height: auto;  /* 比率を維持 */
+    /* 横方向の中央 */
+    transform: translateX(-50%);
+    /* 中央揃え */
+    width: 90%;
+    /* 横幅を90%に設定 */
+    height: auto;
+    /* 高さを自動調整 */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-image.visible {
+    opacity: 1;
+    /* 表示時の透明度 */
 }
 
 /* 小さな画面サイズでの変更 */
 @media (max-width: 600px) {
     .overlay-image {
-        width: 100%;  /* 幅を50%に設定 */
+        width: 100%;
+        /* 幅を50%に設定 */
     }
 }
 
 /* 中くらいの画面サイズでの変更 */
 @media (max-width: 1024px) {
     .overlay-image {
-        width: 80%;  /* 幅を40%に設定 */
+        width: 80%;
+        /* 幅を40%に設定 */
     }
 }
 
 /* 大きな画面サイズでの変更 */
 @media (min-width: 1200px) {
     .overlay-image {
-        width: 70%;  /* 幅を20%に設定 */
+        width: 70%;
+        /* 幅を20%に設定 */
     }
 }
 
@@ -145,22 +173,30 @@ section h2 {
 }
 
 .play-format-images {
-    display: flex; /* 横並び */
-    justify-content: center; /* 中央に配置 */
-    gap: 20px; /* 画像間の間隔 */
-    flex-wrap: wrap; /* 幅が狭い場合に画像が縦並びになるように */
+    display: flex;
+    /* 横並び */
+    justify-content: center;
+    /* 中央に配置 */
+    gap: 20px;
+    /* 画像間の間隔 */
+    flex-wrap: wrap;
+    /* 幅が狭い場合に画像が縦並びになるように */
 }
 
 .image-item {
-    width: 200px; /* 画像の幅を大きく設定 */
-    height: 200px; /* 高さも合わせて正方形に */
-    overflow: hidden; /* 画像がはみ出さないように */
+    width: 200px;
+    /* 画像の幅を大きく設定 */
+    height: 200px;
+    /* 高さも合わせて正方形に */
+    overflow: hidden;
+    /* 画像がはみ出さないように */
 }
 
 .image-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 画像が正方形内に収まるように */
+    object-fit: cover;
+    /* 画像が正方形内に収まるように */
 }
 
 
@@ -175,42 +211,55 @@ section h2 {
 
 .gallery-wrapper {
     width: 100%;
-    overflow: hidden; /* ギャラリーが外にはみ出さないようにする */
+    overflow: hidden;
+    /* ギャラリーが外にはみ出さないようにする */
 }
 
 .gallery-images {
     display: flex;
-    animation: scroll-left 30s linear infinite; /* 30秒で右から左に移動 */
+    animation: scroll-left 30s linear infinite;
+    /* 30秒で右から左に移動 */
 }
 
 .gallery-images img {
-    width: 300px; /* 画像の幅を調整 */
-    height: auto; /* 縦横比を保持 */
-    object-fit: contain;  /* 比率を維持 */
-    margin-right: 20px; /* 画像間の間隔 */
+    width: 300px;
+    /* 画像の幅を調整 */
+    height: auto;
+    /* 縦横比を保持 */
+    object-fit: contain;
+    /* 比率を維持 */
+    margin-right: 20px;
+    /* 画像間の間隔 */
 }
+
 /* 小さい画面 (例: モバイル) */
 @media (max-width: 600px) {
     .gallery-images img {
-        width: 100%; /* 画面幅に合わせて画像を広げる */
-        max-width: none; /* 最大幅制限を解除 */
+        width: 100%;
+        /* 画面幅に合わせて画像を広げる */
+        max-width: none;
+        /* 最大幅制限を解除 */
     }
 }
 
 /* 中〜大きい画面 (例: タブレット・デスクトップ) */
 @media (min-width: 601px) {
     .gallery-images img {
-        width: 300px; /* 通常の画像幅 */
+        width: 300px;
+        /* 通常の画像幅 */
     }
 }
 
 /* アニメーション */
 @keyframes scroll-left {
     0% {
-        transform: translateX(0); /* 初期位置 (最初の画像) */
+        transform: translateX(0);
+        /* 初期位置 (最初の画像) */
     }
+
     100% {
-        transform: translateX(-120vw); /* 画像が半分分流れる (複数の画像が次に表示されるようにする) */
+        transform: translateX(-120vw);
+        /* 画像が半分分流れる (複数の画像が次に表示されるようにする) */
     }
 }
 
@@ -237,9 +286,12 @@ section h2 {
 
 /* チケット情報 */
 .ticket-info {
-    display: flex; /* Flexboxを使用 */
-    justify-content: center; /* 水平方向に中央揃え */
-    align-items: center; /* 垂直方向に中央揃え */
+    display: flex;
+    /* Flexboxを使用 */
+    justify-content: center;
+    /* 水平方向に中央揃え */
+    align-items: center;
+    /* 垂直方向に中央揃え */
 }
 
 /* ボタンについて */
