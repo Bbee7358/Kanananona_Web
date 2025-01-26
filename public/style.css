@@ -3,8 +3,9 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: #fff;
     height: 100%;
+    overflow-x: hidden;
 }
 
 p{
@@ -51,23 +52,42 @@ li{
     text-align: center;
 }
 
-.background-image {
+.scroll-container {
+    position: relative;
+    height: 200vh; /* スクロール用の高さ */
+    background: #FFE7B8; /* 初期の背景色 */
+    transition: background-color 0.3s ease;
+  }
+  
+  /* 画像1のスタイル */
+  .fade-image {
+    position: fixed;
+    top: 50%; /* 縦方向のセンター */
+    left: 50%; /* 横方向のセンター */
+    transform: translate(-50%, -50%); /* 完全に中央に配置 */
+    width: 90%; /* 横幅を90%に調整 */
+    height: auto; /* 高さを自動調整 */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    object-fit: contain; /* 画像の全体表示を維持 */
+  }
+  
+  .fade-image.active {
+    opacity: 1;
+  }
+  
+  /* 画像2のスタイル */
+  .scroll-image {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 画面サイズに合わせて画像をトリミング */
-}
-
-.overlay-image {
-    position: absolute;
-    top: 19%;  /* 画像を画面中央に配置 */
-    left: 50%;
-    transform: translate(-50%, -50%); /* 中央揃え */
-    width: 50%;  /* 重ねる画像のサイズ */
-    height: auto;  /* 比率を維持 */
-}
+    top: 100vh; /* 画面の外に配置 */
+    width: 100%; /* 横幅を100%に調整 */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .scroll-image.active-scroll {
+    opacity: 1;
+  }
 
 /* 小さな画面サイズでの変更 */
 @media (max-width: 600px) {
@@ -358,6 +378,9 @@ a.btn-border-shadow--color2:before {
 .about-description {
     flex: 1;
 }
+
+
+
 
 
 /* 支援していただいた企業様 */
