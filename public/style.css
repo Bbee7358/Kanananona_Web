@@ -11,15 +11,18 @@ body {
 p{
     font-size: 16px;
     font-weight: bold;
+    color: #333;
 }
 
 h3{
     font-size: 20px;
     font-weight: bold;
+    color: #333;
 }
 
 li{
     text-align: left;
+    color: #333;
 }
 
 .container {
@@ -123,7 +126,7 @@ li{
 }
 
 .navigation ul li a {
-    color: #fff;
+    color: #333;;
     text-decoration: none;
     font-size: 16px;
     transition: color 0.3s;
@@ -143,6 +146,7 @@ section h2 {
     font-size: 28px;
     margin-bottom: 20px;
     text-align: center;
+    color: #333;
 }
 
 /* タイトル小見出し */
@@ -366,18 +370,33 @@ a.btn-border-shadow--color2:before {
 .about-section {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 20px; /* 画像とテキストの間にスペースを追加 */
 }
 
 .about-image img {
     width: 100%;
-    max-width: 400px;
+    max-width: 200px; /* 最大幅を200pxに設定 */
+    height: auto;
     border-radius: 8px;
 }
 
 .about-description {
-    flex: 1;
+    flex: 1; /* テキスト部分が残りのスペースを埋める */
 }
+
+/* スマホ向けのレスポンシブデザイン */
+@media screen and (max-width: 768px) {
+    .about-section {
+        flex-direction: column; /* 横並びから縦並びに変更 */
+        gap: 10px; /* 画像とテキストの間の隙間を少し狭くする */
+    }
+
+    .about-image img {
+        max-width: 100%; /* スマホでは画像の幅を100%にして、画面幅に合わせる */
+    }
+}
+
+
 
 
 
